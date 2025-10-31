@@ -1,0 +1,183 @@
+{
+    "version": 1,
+    "author": "Asim Zulfiqar",
+    "editor": "wokwi",
+    "parts": [
+        {
+            "type": "wokwi-breadboard-half",
+            "id": "bb1",
+            "top": 15.3,
+            "left": 89.7,
+            "rotate": 90,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-esp32-devkit-v1",
+            "id": "esp",
+            "top": 4.7,
+            "left": 4.6,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-dht22",
+            "id": "dht1",
+            "top": -18.9,
+            "left": -152.47,
+            "attrs": {
+                "temperature": "26.2",
+                "humidity": "25"
+            }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "led1",
+            "top": -22.8,
+            "left": -73,
+            "attrs": {
+                "color": "red"
+            }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r1",
+            "top": 54.1,
+            "left": -66.61,
+            "rotate": 90,
+            "attrs": {
+                "value": "1000"
+            }
+        },
+        {
+            "type": "wokwi-gas-sensor",
+            "id": "gas1",
+            "top": 98.7,
+            "left": -300.2,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-buzzer",
+            "id": "bz1",
+            "top": 232.8,
+            "left": 78.6,
+            "attrs": {
+                "volume": "0.1"
+            }
+        }
+    ],
+    "connections": [
+        [
+            "esp:TX0",
+            "$serialMonitor:RX",
+            "",
+            []
+        ],
+        [
+            "esp:RX0",
+            "$serialMonitor:TX",
+            "",
+            []
+        ],
+        [
+            "dht1:VCC",
+            "esp:3V3",
+            "red",
+            [
+                "v107.69",
+                "h259.69",
+                "v-48"
+            ]
+        ],
+        [
+            "dht1:SDA",
+            "esp:D12",
+            "green",
+            [
+                "v78.36",
+                "h113.52",
+                "v-22.67"
+            ]
+        ],
+        [
+            "led1:A",
+            "r1:1",
+            "green",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "r1:2",
+            "esp:D26",
+            "blue",
+            [
+                "h23.67",
+                "v-5.97"
+            ]
+        ],
+        [
+            "esp:GND.1",
+            "bb1:bn.16",
+            "black",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "gas1:GND",
+            "bb1:bn.15",
+            "black",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "dht1:GND",
+            "bb1:bn.13",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "led1:C",
+            "bb1:bn.12",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "bz1:1",
+            "bb1:bn.19",
+            "green",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "bz1:2",
+            "esp:D25",
+            "green",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "gas1:AOUT",
+            "esp:D33",
+            "green",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "gas1:VCC",
+            "esp:3V3",
+            "red",
+            [
+                "h0"
+            ]
+        ]
+    ],
+    "dependencies": {}
+}
